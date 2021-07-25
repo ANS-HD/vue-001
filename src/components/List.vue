@@ -14,15 +14,16 @@
       </label>
       <button class="btn btn-danger" style="display: none">删除</button>
     </li> -->
-    <Item />
-      <Item />
-      <Item />
+    <Item  v-for="(todo,index) in todos" :key="todo.id" :todo="todo" :deleteTodo="deleteTodo" :index="index" :updateTodo="updateTodo"/>
+      
   </ul>
 </template>
 
 <script>
 import Item from "./Item";
 export default {
+  //生命接受属性;属性名==>组件对象多了一个todos属性
+  props:['todos','deleteTodo',"updateTodo"],
   components: {
     Item,
   },
